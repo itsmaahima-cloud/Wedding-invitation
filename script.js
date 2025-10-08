@@ -1,6 +1,6 @@
 // --- Countdown Timer ---
-// Set the date for the wedding: Nov 15, 2025, at 5:00 PM (17:00:00)
-const weddingDate = new Date("Nov 15, 2025 17:00:00").getTime();
+// Set the date for the wedding: Nov 15, 2025, at 8:00 PM (20:00:00)
+const weddingDate = new Date("Nov 15, 2025 20:00:00").getTime();
 
 const countdownFunction = setInterval(function() {
     const now = new Date().getTime();
@@ -40,17 +40,10 @@ const displayScrollElement = (element) => {
     element.classList.add("is-visible");
 };
 
-const hideScrollElement = (element) => {
-    element.classList.remove("is-visible");
-};
-
 const handleScrollAnimation = () => {
     scrollElements.forEach((el) => {
         if (elementInView(el, 1.25)) {
             displayScrollElement(el);
-        } else {
-            // Optional: hide the element again when it scrolls out of view
-            // hideScrollElement(el);
         }
     });
 };
@@ -62,3 +55,45 @@ window.addEventListener("scroll", () => {
 
 // Trigger on load
 handleScrollAnimation();
+
+// --- Google Calendar Link Generator ---
+document.addEventListener('DOMContentLoaded', () => {
+    const tilakBtn = document.getElementById('tilak-calendar-link');
+    const vivahBtn = document.getElementById('vivah-calendar-link');
+
+    const location = "Shahu Guest House, Colonelganj, Gonda, U.P.";
+    const details = "You're invited to celebrate the wedding of Shiv & Sudha. We seek your blessings.";
+
+    // --- Event Details (Times are in UTC) ---
+    const events = {
+        tilak: {
+            title: "Tilak Ceremony: Shiv & Sudha",
+            // Date: Nov 10, 2025, 6:00 PM - 8:00 PM IST (12:30 - 14:30 UTC)
+            dates: "20251110T123000Z/20251110T143000Z",
+            location: location,
+            details: details
+        },
+        vivah: {
+            title: "Wedding: Shiv & Sudha",
+            // Date: Nov 15, 2025, 8:00 PM - 10:00 PM IST (14:30 - 16:30 UTC)
+            dates: "20251115T143000Z/20251115T163000Z",
+            location: location,
+            details: details
+        }
+    };
+
+    function createGoogleCalendarLink(event) {
+        const baseUrl = "https://www.google.com/calendar/render?action=TEMPLATE";
+        const params = new URLSearchParams({
+            text: event.title,
+            dates: event.dates,
+            location: event.location,
+            details: event.details,
+            crm: 'BUSY'
+        });
+        return `${baseUrl}&${params.toString()}`;
+    }
+
+    tilakBtn.href = createGoogleCalendarLink(events.tilak);
+    vivahBtn.href = createGoogleCalendarLink(events.vivah);
+});
