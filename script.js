@@ -1,6 +1,6 @@
 // --- Countdown Timer ---
-// Set the date for the wedding: Nov 15, 2025, at 8:00 PM (20:00:00)
-const weddingDate = new Date("Nov 15, 2025 20:00:00").getTime();
+// Set the date for the wedding: March 15, 2026, at 8:00 PM (20:00:00)
+const weddingDate = new Date("March 15, 2026 20:00:00").getTime();
 
 const countdownFunction = setInterval(function() {
     const now = new Date().getTime();
@@ -115,4 +115,55 @@ document.addEventListener('DOMContentLoaded', () => {
     if (haldiBtn) haldiBtn.href = createGoogleCalendarLink(events.haldi);
     if (mehendiBtn) mehendiBtn.href = createGoogleCalendarLink(events.mehendi);
     if (vivahBtn) vivahBtn.href = createGoogleCalendarLink(events.vivah);
+});
+
+
+// --- Fine-tuned Hero Section Interactivity ---
+document.addEventListener('DOMContentLoaded', () => {
+    // RSVP button smooth scroll
+    const heroRsvpBtn = document.getElementById('ftn-hero-rsvp-btn');
+    const rsvpSection = document.querySelector('.rsvp');
+
+    if (heroRsvpBtn && rsvpSection) {
+        heroRsvpBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            rsvpSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    // Language toggle functionality
+    const langEnBtn = document.getElementById('ftn-lang-en');
+    const langHiBtn = document.getElementById('ftn-lang-hi');
+    const translatableElements = document.querySelectorAll('#ftn-hero_mobile_v1 [lang]');
+
+    const setLanguage = (lang) => {
+        translatableElements.forEach(el => {
+            el.style.display = el.getAttribute('lang') === lang ? '' : 'none';
+        });
+
+        // Update button states
+        if (lang === 'en') {
+            langEnBtn.classList.add('active');
+            langEnBtn.setAttribute('aria-pressed', 'true');
+            langHiBtn.classList.remove('active');
+            langHiBtn.setAttribute('aria-pressed', 'false');
+        } else {
+            langHiBtn.classList.add('active');
+            langHiBtn.setAttribute('aria-pressed', 'true');
+            langEnBtn.classList.remove('active');
+            langEnBtn.setAttribute('aria-pressed', 'false');
+        }
+    };
+
+    if (langEnBtn && langHiBtn) {
+        langEnBtn.addEventListener('click', () => setLanguage('en'));
+        langHiBtn.addEventListener('click', () => setLanguage('hi'));
+
+        // Set initial language based on which button is active
+        if(langHiBtn.classList.contains('active')) {
+            setLanguage('hi');
+        } else {
+            setLanguage('en');
+        }
+    }
 });

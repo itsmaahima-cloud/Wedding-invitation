@@ -318,8 +318,114 @@ footer {
     transform: translateY(0);
 }
 
+/* --- Fine-tuned Hero Section --- */
+#ftn-hero_mobile_v1 {
+    background: linear-gradient(160deg, #6b1426, #0b1220);
+    color: #fff9f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ftn-language-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 4px;
+}
+
+.ftn-language-toggle button {
+    background: none;
+    border: none;
+    color: #fff9f0;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 16px;
+    transition: background-color 0.3s;
+}
+
+.ftn-language-toggle button.active {
+    background-color: #d9b44a;
+    color: #0b1220;
+}
+
+.ftn-language-toggle span {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.ftn-hero-content .ftn-sub {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #d9b44a;
+}
+
+.ftn-hero-content .ftn-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; /* Mobile first */
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    animation: none; /* Override global h1 animation */
+    opacity: 1; /* Ensure it's visible */
+}
+
+.ftn-shloka {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 1.5rem auto;
+    line-height: 1.7;
+    max-width: 550px;
+    color: rgba(255, 249, 240, 0.8);
+}
+
+.ftn-shloka p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.ftn-date-venue {
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem 0;
+}
+
+.ftn-btn {
+    min-height: 44px;
+    padding: 10px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0b1220;
+    background: #d9b44a;
+    border: 2px solid #d9b44a;
+    border-radius: 999px; /* Pill-shaped */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ftn-btn:hover {
+    background-color: transparent;
+    color: #d9b44a;
+    transform: scale(1.05);
+}
+
+
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
+    #ftn-hero_mobile_v1 .ftn-heading {
+        font-size: 2.8rem;
+    }
+
     h1 {
         font-size: 3.5rem;
     }
