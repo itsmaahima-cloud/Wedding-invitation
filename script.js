@@ -1,32 +1,64 @@
-// Set the date we're counting down to
-// Set for the VIVAH date: Nov 15, 2025 at 5:00 PM (17:00:00)
-// *** ACTION REQUIRED: Update the time if necessary ***
+// --- Countdown Timer ---
+// Set the date for the wedding: Nov 15, 2025, at 5:00 PM (17:00:00)
 const weddingDate = new Date("Nov 15, 2025 17:00:00").getTime();
 
-// Update the countdown every 1 second
-const x = setInterval(function() {
-
-    // Get today's date and time
+const countdownFunction = setInterval(function() {
     const now = new Date().getTime();
-
-    // Find the distance between now and the countdown date
     const distance = weddingDate - now;
 
-    // Time calculations for days, hours, minutes and seconds
+    // Time calculations
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Output the result in elements with id="days", "hours", etc.
+    // Display the result
     document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
     document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
     document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
     document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
 
-    // If the countdown is finished, write some text
+    // When the countdown is over
     if (distance < 0) {
-        clearInterval(x);
+        clearInterval(countdownFunction);
         document.getElementById("countdown").innerHTML = "The celebration is underway! Shiv Weds Sudha 🎉";
     }
-}, 1000); // 1000 milliseconds = 1 second
+}, 1000);
+
+
+// --- Scroll Animation ---
+const scrollElements = document.querySelectorAll(".animate-on-scroll");
+
+const elementInView = (el, dividend = 1) => {
+    const elementTop = el.getBoundingClientRect().top;
+    return (
+        elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+    );
+};
+
+const displayScrollElement = (element) => {
+    element.classList.add("is-visible");
+};
+
+const hideScrollElement = (element) => {
+    element.classList.remove("is-visible");
+};
+
+const handleScrollAnimation = () => {
+    scrollElements.forEach((el) => {
+        if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+        } else {
+            // Optional: hide the element again when it scrolls out of view
+            // hideScrollElement(el);
+        }
+    });
+};
+
+// Initialize and add scroll event listener
+window.addEventListener("scroll", () => {
+    handleScrollAnimation();
+});
+
+// Trigger on load
+handleScrollAnimation();
