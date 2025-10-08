@@ -2,8 +2,8 @@
 body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.8;
-    color: #5d4a3e; /* Soft, earthy brown for text */
-    background-color: #fdfaf6; /* Creamy off-white background */
+    color: #4A4A4A; /* Dark Grey for text */
+    background-color: #FDFDFD; /* Near White background */
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scroll */
@@ -13,21 +13,21 @@ body {
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    color: #333;
+    color: #1A237E; /* Deep Indigo */
 }
 
 h1 {
-    font-size: 4.5rem;
+    font-size: 5rem;
     margin: 0.5rem 0;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     animation: fadeInTitle 2s ease-in-out;
 }
 
 @keyframes fadeInTitle {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-25px);
     }
     to {
         opacity: 1;
@@ -36,9 +36,9 @@ h1 {
 }
 
 h2 {
-    font-size: 2.8rem;
+    font-size: 3rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     position: relative;
 }
 
@@ -46,10 +46,17 @@ h2 {
 h2::after {
     content: '';
     display: block;
-    width: 80px;
-    height: 2px;
-    background-color: #800000; /* Maroon Accent */
-    margin: 0.5rem auto 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFC107, #E91E63); /* Gold to Pink Gradient */
+    margin: 0.75rem auto 0;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s;
+}
+
+.animate-on-scroll.is-visible h2::after {
+    transform: scaleX(1);
 }
 
 p {
@@ -57,152 +64,176 @@ p {
     margin-bottom: 1rem;
 }
 
+/* --- Ganesha Icon --- */
+.ganesha-icon {
+    display: block;
+    margin: 0 auto 1rem;
+    width: 100px; /* Adjust size as needed */
+}
+
 /* --- Hero Section --- */
 .hero {
-    background: url('https://images.unsplash.com/photo-1523438943993-12a58318654b?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-    color: white;
+    background: url('https://www.toptal.com/designers/subtlepatterns/uploads/motif-jason-santamaria.png');
+    color: #1A237E; /* Deep Indigo text on light background */
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); /* Dark overlay */
     padding: 40px 20px;
 }
 
 .hero-content .greeting {
-    font-size: 1.5rem;
-    font-weight: 300;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #E91E63; /* Accent Pink */
 }
 
 .hero-content .date, .hero-content .location {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 400;
 }
 
 /* --- Traditional Elements --- */
-
 .shloka {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-style: italic;
-    margin: 1.5rem auto;
-    line-height: 1.7;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-    max-width: 500px;
+    margin: 2rem auto;
+    line-height: 1.8;
+    max-width: 550px;
+    color: #4A4A4A;
 }
 
 .shloka p {
     margin: 0;
-    font-size: 1.1rem; /* Ensure it overrides general p */
+    font-size: 1.2rem;
 }
 
 /* --- General Section Styling --- */
 section {
-    padding: 60px 20px;
-    max-width: 900px;
+    padding: 80px 20px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
 }
 
 /* --- Details & Info Blocks --- */
 .details {
-    background-image: url('https://www.transparenttextures.com/patterns/paisley.png');
-    background-color: #fdfaf6; /* Fallback color */
+    background-color: #FFF8E1; /* Light Cream */
 }
 
 .details .description {
-    max-width: 700px;
-    margin: 0 auto 3rem;
+    max-width: 750px;
+    margin: 0 auto 3.5rem;
+    font-size: 1.2rem;
 }
 
 .info-blocks {
     display: flex;
-    justify-content: space-around;
-    gap: 2rem;
+    justify-content: center;
+    gap: 2.5rem;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    perspective: 1000px;
 }
 
 .block {
     background: #ffffff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    width: 300px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-top: 5px solid #800000; /* Maroon top border */
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    width: 320px;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s;
+    border: 1px solid #eee;
+    border-top: 7px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #FFC107, #E91E63); /* Gold to Pink Gradient Border */
+    transform-style: preserve-3d;
 }
 
 .block:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px) rotateY(5deg);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
 }
 
+/* Specific block themes */
+.block.haldi {
+    border-image-source: linear-gradient(90deg, #FFEB3B, #FFC107); /* Yellow to Gold */
+}
+
+.block.mehendi {
+    border-image-source: linear-gradient(90deg, #4CAF50, #8BC34A); /* Green to Light Green */
+}
+
+
 .block h3 {
-    color: #800000; /* Maroon Accent */
+    color: #1A237E; /* Deep Indigo */
     margin-top: 0;
+    font-size: 1.8rem;
 }
 
 .map-link, .calendar-button {
     display: inline-block;
-    margin-top: 1rem;
-    padding: 10px 25px;
-    background-color: #800000; /* Maroon Accent */
+    margin-top: 1.5rem;
+    padding: 12px 30px;
+    background: linear-gradient(90deg, #1A237E, #3F51B5); /* Indigo Gradient */
     color: white;
     text-decoration: none;
-    border-radius: 25px;
-    transition: background-color 0.3s, transform 0.3s;
-    font-size: 0.9rem;
+    border-radius: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(26, 35, 126, 0.3);
 }
 
 .map-link:hover, .calendar-button:hover {
-    background-color: #660000; /* Darker Maroon */
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(26, 35, 126, 0.4);
 }
 
 
 /* --- Our Story Section --- */
 .our-story {
-    background-color: #ffffff;
-    padding: 60px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    background-color: #FDFDFD;
 }
 
 .our-story p {
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto;
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    color: #333;
 }
 
 /* --- Gallery Section --- */
 .gallery-images {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
 .gallery-images img {
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
-    border: 5px solid #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 8px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .gallery-images img:hover {
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 
 /* --- Countdown Timer --- */
 .countdown-section {
-    background-color: #5d4a3e; /* Dark brown background */
+    background: linear-gradient(135deg, #1A237E, #3F51B5); /* Deep Indigo Gradient */
     color: white;
 }
 
@@ -211,13 +242,13 @@ section {
 }
 
 .countdown-section h2::after {
-    background-color: #FFD700; /* Gold Accent */
+    background: #FFC107; /* Gold Accent */
 }
 
 .timer {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .time-unit {
@@ -226,27 +257,29 @@ section {
 
 .time-unit span {
     display: block;
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 700;
-    color: #FFD700; /* Gold Accent */
+    color: #FFC107; /* Gold Accent */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
 /* --- RSVP Section --- */
 .rsvp-button, .whatsapp-button {
     display: inline-block;
-    padding: 15px 40px;
-    font-size: 1.2rem;
+    padding: 18px 45px;
+    font-size: 1.3rem;
     font-weight: 600;
     color: white;
-    border-radius: 30px;
+    border-radius: 35px;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin: 10px 5px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    margin: 10px 10px 0;
+    border: none;
 }
 
 .rsvp-button {
-    background: #800000; /* Maroon Accent */
+    background: linear-gradient(90deg, #E91E63, #9C27B0); /* Pink to Purple Gradient */
 }
 
 .whatsapp-button {
@@ -254,37 +287,30 @@ section {
 }
 
 .rsvp-button:hover, .whatsapp-button:hover {
-    transform: translateY(-5px);
-}
-
-.rsvp-button:hover {
-    background: #660000; /* Darker Maroon */
-}
-
-.whatsapp-button:hover {
-    background: #1EBE57; /* Darker WhatsApp Green */
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 .rsvp-note {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #888;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #777;
 }
 
 /* --- Footer --- */
 footer {
     text-align: center;
-    padding: 30px;
+    padding: 40px;
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    color: #888;
+    font-size: 1.3rem;
+    color: #999;
 }
 
 /* --- Animations on Scroll --- */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
 }
 
 .animate-on-scroll.is-visible {
@@ -295,24 +321,24 @@ footer {
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
     h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     p {
         font-size: 1rem;
     }
     section {
-        padding: 40px 20px;
+        padding: 50px 20px;
     }
     .info-blocks {
         flex-direction: column;
         align-items: center;
     }
     .block {
-        width: 90%;
-        max-width: 400px;
+        width: 95%;
+        max-width: 450px;
     }
     .gallery-images {
         flex-direction: column;
@@ -320,53 +346,53 @@ footer {
     }
     .gallery-images img {
         width: 100%;
-        max-width: 350px; /* Control max size on mobile */
+        max-width: 380px; /* Control max size on mobile */
         height: auto;
     }
     .timer {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.8rem;
     }
     .time-unit span {
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
     .rsvp-button, .whatsapp-button {
-        padding: 12px 30px;
-        font-size: 1.1rem;
+        padding: 15px 35px;
+        font-size: 1.2rem;
     }
     .our-story {
-        padding: 40px 25px;
+        padding: 50px 25px;
     }
     .shloka, .shloka p {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         letter-spacing: 1px;
     }
     h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     .hero-content .greeting {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     .hero-content .date, .hero-content .location {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     .timer {
-        gap: 1rem;
+        gap: 1.2rem;
     }
     .time-unit span {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
     .rsvp-button, .whatsapp-button {
-        width: 80%;
-        padding: 15px 20px;
+        width: 90%;
+        padding: 15px 25px;
     }
-    .ganesha-img {
-        max-width: 80px;
+    .ganesha-icon {
+        width: 80px;
     }
 }

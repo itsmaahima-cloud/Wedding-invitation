@@ -59,25 +59,42 @@ handleScrollAnimation();
 // --- Google Calendar Link Generator ---
 document.addEventListener('DOMContentLoaded', () => {
     const tilakBtn = document.getElementById('tilak-calendar-link');
+    const haldiBtn = document.getElementById('haldi-calendar-link');
+    const mehendiBtn = document.getElementById('mehendi-calendar-link');
     const vivahBtn = document.getElementById('vivah-calendar-link');
 
-    const location = "Shahu Guest House, Colonelganj, Gonda, U.P.";
+    const mainVenue = "Shahu Guest House, Colonelganj, Gonda, U.P.";
+    const homeVenue = "Home, Sweet Home, Gonda, Uttar Pradesh";
     const details = "You're invited to celebrate the wedding of Shiv & Sudha. We seek your blessings.";
 
-    // --- Event Details (Times are in UTC) ---
+    // --- Event Details (Times are in UTC, assuming IST is UTC+5:30) ---
     const events = {
         tilak: {
             title: "Tilak Ceremony: Shiv & Sudha",
             // Date: Nov 10, 2025, 6:00 PM - 8:00 PM IST (12:30 - 14:30 UTC)
             dates: "20251110T123000Z/20251110T143000Z",
-            location: location,
+            location: mainVenue,
+            details: details
+        },
+        haldi: {
+            title: "Haldi Ceremony: Shiv & Sudha",
+            // Date: Nov 12, 2025, 11:00 AM - 1:00 PM IST (05:30 - 07:30 UTC)
+            dates: "20251112T053000Z/20251112T073000Z",
+            location: homeVenue,
+            details: details
+        },
+        mehendi: {
+            title: "Mehendi Ceremony: Shiv & Sudha",
+            // Date: Nov 13, 2025, 4:00 PM - 6:00 PM IST (10:30 - 12:30 UTC)
+            dates: "20251113T103000Z/20251113T123000Z",
+            location: homeVenue,
             details: details
         },
         vivah: {
             title: "Wedding: Shiv & Sudha",
             // Date: Nov 15, 2025, 8:00 PM - 10:00 PM IST (14:30 - 16:30 UTC)
             dates: "20251115T143000Z/20251115T163000Z",
-            location: location,
+            location: mainVenue,
             details: details
         }
     };
@@ -94,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${baseUrl}&${params.toString()}`;
     }
 
-    tilakBtn.href = createGoogleCalendarLink(events.tilak);
-    vivahBtn.href = createGoogleCalendarLink(events.vivah);
+    if (tilakBtn) tilakBtn.href = createGoogleCalendarLink(events.tilak);
+    if (haldiBtn) haldiBtn.href = createGoogleCalendarLink(events.haldi);
+    if (mehendiBtn) mehendiBtn.href = createGoogleCalendarLink(events.mehendi);
+    if (vivahBtn) vivahBtn.href = createGoogleCalendarLink(events.vivah);
 });
