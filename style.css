@@ -21,6 +21,18 @@ h1 {
     margin: 0.5rem 0;
     letter-spacing: 2px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    animation: fadeInTitle 2s ease-in-out;
+}
+
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h2 {
@@ -36,7 +48,7 @@ h2::after {
     display: block;
     width: 80px;
     height: 2px;
-    background-color: #c49974; /* Elegant gold/bronze accent */
+    background-color: #800000; /* Maroon Accent */
     margin: 0.5rem auto 0;
 }
 
@@ -49,13 +61,14 @@ p {
 .hero {
     background: url('https://images.unsplash.com/photo-1523438943993-12a58318654b?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
     color: white;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); /* Dark overlay */
+    padding: 40px 20px;
 }
 
 .hero-content .greeting {
@@ -68,6 +81,22 @@ p {
     font-weight: 400;
 }
 
+/* --- Traditional Elements --- */
+
+.shloka {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 1.5rem auto;
+    line-height: 1.7;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    max-width: 500px;
+}
+
+.shloka p {
+    margin: 0;
+    font-size: 1.1rem; /* Ensure it overrides general p */
+}
+
 /* --- General Section Styling --- */
 section {
     padding: 60px 20px;
@@ -77,6 +106,11 @@ section {
 }
 
 /* --- Details & Info Blocks --- */
+.details {
+    background-image: url('https://www.transparenttextures.com/patterns/paisley.png');
+    background-color: #fdfaf6; /* Fallback color */
+}
+
 .details .description {
     max-width: 700px;
     margin: 0 auto 3rem;
@@ -97,6 +131,7 @@ section {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     width: 300px;
     transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid #800000; /* Maroon top border */
 }
 
 .block:hover {
@@ -105,23 +140,24 @@ section {
 }
 
 .block h3 {
-    color: #c49974;
+    color: #800000; /* Maroon Accent */
     margin-top: 0;
 }
 
-.map-link {
+.map-link, .calendar-button {
     display: inline-block;
     margin-top: 1rem;
     padding: 10px 25px;
-    background-color: #c49974;
+    background-color: #800000; /* Maroon Accent */
     color: white;
     text-decoration: none;
     border-radius: 25px;
     transition: background-color 0.3s, transform 0.3s;
+    font-size: 0.9rem;
 }
 
-.map-link:hover {
-    background-color: #a97c50;
+.map-link:hover, .calendar-button:hover {
+    background-color: #660000; /* Darker Maroon */
     transform: scale(1.05);
 }
 
@@ -153,13 +189,13 @@ section {
     width: 280px;
     height: 280px;
     object-fit: cover;
-    border-radius: 10px;
+    border: 5px solid #fff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .gallery-images img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(2deg);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
@@ -175,7 +211,7 @@ section {
 }
 
 .countdown-section h2::after {
-    background-color: #c49974; /* Gold accent on dark background */
+    background-color: #FFD700; /* Gold Accent */
 }
 
 .timer {
@@ -192,25 +228,41 @@ section {
     display: block;
     font-size: 3.5rem;
     font-weight: 700;
+    color: #FFD700; /* Gold Accent */
 }
 
 /* --- RSVP Section --- */
-.rsvp-button {
+.rsvp-button, .whatsapp-button {
     display: inline-block;
     padding: 15px 40px;
     font-size: 1.2rem;
     font-weight: 600;
     color: white;
-    background-color: #c49974;
     border-radius: 30px;
     text-decoration: none;
     transition: background-color 0.3s, transform 0.3s;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 10px 5px 0;
+}
+
+.rsvp-button {
+    background: #800000; /* Maroon Accent */
+}
+
+.whatsapp-button {
+    background: #25D366; /* WhatsApp Green */
+}
+
+.rsvp-button:hover, .whatsapp-button:hover {
+    transform: translateY(-5px);
 }
 
 .rsvp-button:hover {
-    background-color: #a97c50;
-    transform: translateY(-5px);
+    background: #660000; /* Darker Maroon */
+}
+
+.whatsapp-button:hover {
+    background: #1EBE57; /* Darker WhatsApp Green */
 }
 
 .rsvp-note {
@@ -243,14 +295,24 @@ footer {
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     h1 {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
     h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    section {
+        padding: 40px 20px;
     }
     .info-blocks {
         flex-direction: column;
         align-items: center;
+    }
+    .block {
+        width: 90%;
+        max-width: 400px;
     }
     .gallery-images {
         flex-direction: column;
@@ -263,9 +325,48 @@ footer {
     }
     .timer {
         flex-direction: column;
+        gap: 1.5rem;
+    }
+    .time-unit span {
+        font-size: 2.8rem;
+    }
+    .rsvp-button, .whatsapp-button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+    .our-story {
+        padding: 40px 25px;
+    }
+    .shloka, .shloka p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .hero-content .greeting {
+        font-size: 1.2rem;
+    }
+    .hero-content .date, .hero-content .location {
+        font-size: 1.1rem;
+    }
+    .timer {
         gap: 1rem;
     }
     .time-unit span {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+    .rsvp-button, .whatsapp-button {
+        width: 80%;
+        padding: 15px 20px;
+    }
+    .ganesha-img {
+        max-width: 80px;
     }
 }
