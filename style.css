@@ -1,0 +1,24 @@
+/* ... (All previous CSS styles remain the same) ... */
+
+/* --- Hero Section (The Main Display) --- */
+.hero {
+    /* *** ACTION REQUIRED: REPLACE 'your-combined-photo.jpg' with the actual path to your picture *** */
+    /* If you want to use the bride's picture: url('1000008661.jpg') */
+    /* If you want to use a combined photo: url('shiv-sudha-hero.jpg') */
+    background: url('shiv-sudha-hero.jpg') center/cover no-repeat; 
+    color: white;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    /* Dark overlay for better text readability */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3); 
+}
+
+/* ... (Rest of the CSS remains the same) ... */
+
+/* Remember the primary colors are: */
+/* Text: #333 and #5d4a3e (Soft Brown) */
+/* Accent: #c49974 (Elegent Gold/Bronze) */
