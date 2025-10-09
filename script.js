@@ -118,30 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// --- Fine-tuned Hero Section Interactivity ---
+// --- Elegant Hero Section Interactivity ---
 document.addEventListener('DOMContentLoaded', () => {
-    // RSVP button smooth scroll
-    const heroRsvpBtn = document.getElementById('ftn-hero-rsvp-btn');
-    const rsvpSection = document.querySelector('.rsvp');
+    const heroSection = document.getElementById('ftn-hero-elegant-v1');
+    if (!heroSection) return; // Exit if the new hero section isn't on the page
 
-    if (heroRsvpBtn && rsvpSection) {
-        heroRsvpBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            rsvpSection.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
-    // Language toggle functionality
-    const langEnBtn = document.getElementById('ftn-lang-en');
-    const langHiBtn = document.getElementById('ftn-lang-hi');
-    const translatableElements = document.querySelectorAll('#ftn-hero_mobile_v1 [lang]');
+    // --- Language Toggle Functionality ---
+    const langEnBtn = document.getElementById('ftn-lang-en-btn');
+    const langHiBtn = document.getElementById('ftn-lang-hi-btn');
+    const translatableElements = heroSection.querySelectorAll('[lang]');
 
     const setLanguage = (lang) => {
         translatableElements.forEach(el => {
             el.style.display = el.getAttribute('lang') === lang ? '' : 'none';
         });
 
-        // Update button states
         if (lang === 'en') {
             langEnBtn.classList.add('active');
             langEnBtn.setAttribute('aria-pressed', 'true');
@@ -158,12 +149,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langEnBtn && langHiBtn) {
         langEnBtn.addEventListener('click', () => setLanguage('en'));
         langHiBtn.addEventListener('click', () => setLanguage('hi'));
+        // Set initial language
+        setLanguage('en');
+    }
 
-        // Set initial language based on which button is active
-        if(langHiBtn.classList.contains('active')) {
-            setLanguage('hi');
-        } else {
-            setLanguage('en');
-        }
+    // --- RSVP Button Smooth Scroll ---
+    const rsvpBtn = document.getElementById('ftn-rsvp-btn');
+    const rsvpSection = document.querySelector('.rsvp'); // Assuming the target section has a class 'rsvp'
+
+    if (rsvpBtn && rsvpSection) {
+        rsvpBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            rsvpSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     }
 });

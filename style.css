@@ -318,113 +318,107 @@ footer {
     transform: translateY(0);
 }
 
-/* --- Fine-tuned Hero Section --- */
-#ftn-hero_mobile_v1 {
-    background: linear-gradient(160deg, #6b1426, #0b1220);
-    color: #fff9f0;
+/* --- Elegant Hero Section (ftn-hero-elegant-v1) --- */
+#ftn-hero-elegant-v1 {
+    background-color: #5a0b1a; /* Deep Maroon */
+    color: #f7f3e9; /* Off-white text */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
     position: relative;
-    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    animation: ftn-fade-in 1.5s ease-in-out;
 }
 
-.ftn-language-toggle {
+@keyframes ftn-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.ftn-lang-toggle {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #d4af37; /* Gold accent border */
     border-radius: 20px;
-    padding: 4px;
+    padding: 2px;
 }
 
-.ftn-language-toggle button {
-    background: none;
+.ftn-lang-toggle button {
+    background: transparent;
     border: none;
-    color: #fff9f0;
-    font-size: 12px;
+    color: #d4af37; /* Gold accent */
+    font-size: 13px;
     font-weight: 600;
-    padding: 6px 12px;
+    padding: 5px 10px;
     cursor: pointer;
-    border-radius: 16px;
-    transition: background-color 0.3s;
+    border-radius: 18px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.ftn-language-toggle button.active {
-    background-color: #d9b44a;
-    color: #0b1220;
+.ftn-lang-toggle button.active {
+    background-color: #d4af37; /* Gold background */
+    color: #5a0b1a; /* Maroon text */
 }
 
-.ftn-language-toggle span {
-    color: rgba(255, 255, 255, 0.4);
+.ftn-lang-toggle span {
+    color: rgba(212, 175, 55, 0.5); /* Faded gold */
 }
 
-.ftn-hero-content .ftn-sub {
-    font-size: 1.1rem;
+.ftn-hero-content-wrapper {
+    max-width: 900px;
+}
+
+.ftn-intro-text {
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #d9b44a;
+    color: #e0c56e; /* Softer Gold */
 }
 
-.ftn-hero-content .ftn-heading {
+.ftn-couple-names {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem; /* Mobile first */
+    font-size: 4rem; /* Mobile first */
+    font-weight: 700;
     color: #ffffff;
     margin: 0 0 1rem 0;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-    animation: none; /* Override global h1 animation */
-    opacity: 1; /* Ensure it's visible */
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.4);
 }
 
-.ftn-shloka {
+.ftn-date-location {
+    font-size: 1.3rem;
+    margin: 1rem 0 2.5rem 0;
+}
+
+.ftn-cta-button {
+    display: inline-block;
+    padding: 12px 40px;
     font-size: 1.1rem;
-    font-style: italic;
-    margin: 1.5rem auto;
-    line-height: 1.7;
-    max-width: 550px;
-    color: rgba(255, 249, 240, 0.8);
-}
-
-.ftn-shloka p {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-.ftn-date-venue {
-    font-size: 1.2rem;
-    margin: 1rem 0 2rem 0;
-}
-
-.ftn-btn {
-    min-height: 44px;
-    padding: 10px 35px;
-    font-size: 1rem;
     font-weight: 600;
-    color: #0b1220;
-    background: #d9b44a;
-    border: 2px solid #d9b44a;
-    border-radius: 999px; /* Pill-shaped */
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    color: #5a0b1a; /* Maroon text */
+    background-color: #d4af37; /* Gold background */
+    border: 2px solid #d4af37;
+    border-radius: 50px;
+    text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
-.ftn-btn:hover {
+.ftn-cta-button:hover {
     background-color: transparent;
-    color: #d9b44a;
+    color: #d4af37; /* Gold text */
     transform: scale(1.05);
 }
 
-
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
-    #ftn-hero_mobile_v1 .ftn-heading {
-        font-size: 2.8rem;
-    }
+    .ftn-couple-names { font-size: 3.2rem; }
+    .ftn-intro-text { font-size: 1.1rem; }
+    .ftn-date-location { font-size: 1.2rem; }
 
     h1 {
         font-size: 3.5rem;
@@ -475,6 +469,11 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .ftn-couple-names { font-size: 2.5rem; }
+    .ftn-intro-text { font-size: 1rem; }
+    .ftn-date-location { font-size: 1.1rem; }
+    .ftn-cta-button { padding: 10px 30px; font-size: 1rem; }
+
     h1 {
         font-size: 2.8rem;
         letter-spacing: 1px;
